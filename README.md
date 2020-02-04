@@ -1,24 +1,23 @@
-# README
+# Weblico
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The platform which will create my personal dynamic webapp
 
-Things you may want to cover:
+| Dependency | Version |
+|:-----------|:--------|
+| Ruby       | 2.6.5   |
+| Rails      | 6.0.2.1 |
+| Postgresql | 1.2.2   |
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+1. Clone the project
 
-* Configuration
+  `git clone git@github.com:EGiataganas/weblico.git`
 
-* Database creation
+2. Install the project's dependencies using bundler
 
-* Database initialization
+  `bundle install`
 
-* How to run the test suite
+## Server
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  `rails s`
