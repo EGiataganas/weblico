@@ -1,0 +1,110 @@
+require:
+  - rubocop
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - '**/*.gemspec'
+    - '**/Rakefile'
+    - 'node_modules/**/*'
+
+Performance:
+  Exclude:
+    - '**/test/**/*'
+
+Rails:
+  Enabled: true
+
+# private/protected/public
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+# Chain methods with trailing dots.
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/LineLength:
+  Max: 80
+  Exclude:
+    - 'spec/**/*'
+
+# Just indent parameters by two spaces. It's less volatile if methods change,
+# and there's less busy work lining things up.
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+# Don't allow safe assignment in conditions.
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+# Don't worry about long methods in specs.
+Metrics/MethodLength:
+  Max: 10
+  Exclude:
+    - 'spec/**/*'
+
+# Allow ===. It's useful.
+Style/CaseEquality:
+  Enabled: false
+
+Style/CollectionMethods:
+  PreferredMethods:
+    inject: 'inject'
+    reduce: 'inject'
+
+# Percent-formatting and hash interpolation both have their place. Don't
+# enforce any particular one.
+Style/FormatString:
+  Enabled: false
+
+# It's not really clearer to replace every if with a return if.
+Style/GuardClause:
+  Enabled: false
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Exclude:
+    - 'spec/**/*'
+
+# Prefer sensible naming to comments everywhere.
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: false
+
+# Would enforce do_y if x over if x / do y / end. As with GuardClause above,
+# this enforces code organisation that doesn't necesarily make things clearer.
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Performance/FlatMap:
+  Enabled: true
+
+Performance/RedundantMerge:
+  Enabled: true
+
+Performance/StartWith:
+  Enabled: true
+
+Performance/EndWith:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Performance/UnfreezeString:
+  Enabled: true
+
+# Prefer new-style Rails validators
+Rails/Validation:
+  Enabled: true
