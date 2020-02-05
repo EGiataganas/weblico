@@ -14,6 +14,7 @@ gem "webpacker", "~> 4.0"
 
 group :development, :test do
   gem "brakeman", require: false
+  gem "bundle-audit", require: false
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry-byebug"
   gem "rspec-rails"
